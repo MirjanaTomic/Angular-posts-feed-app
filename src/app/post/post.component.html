@@ -1,0 +1,21 @@
+<div *ngIf="posts">
+  <div id="post-container"  *ngFor="let post of posts">
+    <div id="post-header">
+      <h3 id="post-title"><span>{{post.id}}. </span>{{post.title}}</h3><i class="fas fa-chevron-down" (click)="showComments($event, post.id)"></i>
+    </div>
+    <div id="post-body">
+      <p>{{post.body}}</p>
+      <p><strong>User: </strong>{{userInfo.name}}</p>
+      <h4 *ngIf="comments">Comments</h4>
+      <div>
+        <div *ngFor="let comment of comments" id="comments-container">
+          <p id="comment-text">{{comment.body}}</p>
+          <button (click)="deleteComment(comment.id)" id="delete-button"><i class="far fa-trash-alt" *ngIf="comments"></i> Delete comment</button>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
