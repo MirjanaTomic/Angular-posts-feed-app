@@ -1,13 +1,15 @@
 <div *ngIf="posts">
   <div id="post-container"  *ngFor="let post of posts">
     <div id="post-header">
-      <h3 id="post-title"><span>{{post.id}}. </span>{{post.title}}</h3><i class="fas fa-chevron-down" (click)="showComments($event, post.id)"></i>
+      <h3 id="post-title"><span>{{post.id}}. </span>{{post.title}}</h3>
     </div>
     <div id="post-body">
       <p>{{post.body}}</p>
-      <p><strong>User: </strong>{{userInfo.name}}</p>
-      <h4 *ngIf="comments">Comments</h4>
-      <div>
+      <!-- <p><strong>User: </strong>{{userInfo.name}}</p> -->
+      <button (click)="showComments($event, post.id)" id="comments-heading">
+        <span>Comments</span><i class="fas fa-chevron-down" ></i>
+      </button>
+      <div *ngIf="(post.id === _postId)">
         <div *ngFor="let comment of comments" id="comments-container">
           <p id="comment-text">{{comment.body}}</p>
           <button (click)="deleteComment(comment.id)" id="delete-button"><i class="far fa-trash-alt" *ngIf="comments"></i> Delete comment</button>

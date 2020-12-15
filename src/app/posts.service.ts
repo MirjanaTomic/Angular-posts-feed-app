@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { mergeMap } from 'rxjs/operators';
-import { ThrowStmt } from '@angular/compiler';
-import { userInfo } from 'os';
-
+import { Post } from './models/post';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,8 +12,8 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts() {
-    return this.http.get(this.postsUrl);
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.postsUrl);
   }
 
   getComments(id) {
