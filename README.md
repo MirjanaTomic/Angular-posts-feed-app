@@ -1,6 +1,6 @@
 # Posts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4. Posts are fetched from https://jsonplaceholder.typicode.com/ and comments on the posts can be fetched on demand.
 
 ## Development server
 
